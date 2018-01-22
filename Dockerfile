@@ -14,7 +14,7 @@ ENV PHPCI_DB_USER phpci
 ENV PHPCI_DB_PASSWORD phpci
 ENV PHPCI_ADMIN_LOGIN admin
 ENV PHPCI_ADMIN_PASSWORD admin
-ENV PHPCI_ADMIN_MAIL admin@domain.tld
+ENV PHPCI_ADMIN_EMAIL admin@domain.tld
 
 RUN composer create-project block8/phpci=${PHPCI_VERSION} /app --keep-vcs --no-dev
 RUN composer install

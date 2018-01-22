@@ -1,0 +1,28 @@
+version: '2'
+services:
+  phpci:
+    ports:
+      - 8080:80
+    links:
+      - mysql
+    environment:
+      PHPCI_VERSION: 1.7.1
+      PHPCI_URL: http://localhost:8080
+      PHPCI_DATABASE_HOST: mysql
+      PHPCI_DATABASE_NAME: phpci
+      PHPCI_DATABASE_USERNAME: root
+      PHPCI_DATABASE_PASSWORD: phpci
+      PHPCI_ADMIN_LOGIN: admin
+      PHPCI_ADMIN_PASSWORD: admin
+      PHPCI_ADMIN_EMAIL: john.doe@example.com
+    build: .
+
+  mysql:
+    image: mysql
+    ports:
+      - 3306:3306
+    volumes:
+      - /var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: phpci
+      MYSQL_DATABASE: phpci
